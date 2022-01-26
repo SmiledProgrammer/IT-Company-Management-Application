@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CompanymanagerApplication {
+public class CompanyManagerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CompanymanagerApplication.class, args);
+		SpringApplication.run(CompanyManagerApplication.class, args);
 	}
-
 }
