@@ -1,0 +1,17 @@
+html * {
+    font-family: Verdana, ui-sans-serif;
+}
+table {
+    margin: 15px;
+}
+input {
+    margin-bottom: 10px;
+}
+table, th, td {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    background-color: cornsilk;
+    padding: 5px 15px;
+}

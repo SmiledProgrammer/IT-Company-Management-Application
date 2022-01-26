@@ -15,8 +15,8 @@ public class WorkerService {
 
     private final WorkerRepository workerRepository;
 
-    public Worker saveWorker(Worker worker) {
-        return workerRepository.save(worker);
+    public void saveWorker(Worker worker) {
+        workerRepository.save(worker);
     }
 
     public Worker getWorker(Long id) {
@@ -29,7 +29,7 @@ public class WorkerService {
         return workerRepository.findAll(pageable);
     }
 
-    public Worker updateWorker(Long id, Worker worker) {
+    public void updateWorker(Long id, Worker worker) {
         if (!id.equals(worker.getId())) {
             throw new IllegalArgumentException("Worker identifiers from path and body are mismatching.");
         }
@@ -41,7 +41,7 @@ public class WorkerService {
         record.setSalary(worker.getSalary());
         record.setEmail(worker.getEmail());
         record.setPhoneNumber(worker.getPhoneNumber());
-        return workerRepository.save(record);
+        workerRepository.save(record);
     }
 
     public void deleteWorker(Long id) {
