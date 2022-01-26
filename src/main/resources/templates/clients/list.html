@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+</head>
+<body>
+<h1>Clients</h1>
+<a th:href="@{/clients/add}">Add new client</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="client : ${clients}">
+            <td th:text="${client.id}"></td>
+            <td th:text="${client.firstName}"></td>
+            <td th:text="${client.lastName}"></td>
+            <td th:text="${client.company}"></td>
+            <td th:text="${client.email}"></td>
+            <td th:text="${client.phoneNumber}"></td>
+            <td><a th:href="@{/clients/{id}(id=${client.id})}">Edit</a></td>
+            <td><a th:href="@{/clients/delete/{id}(id=${client.id})}">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <nobr>
+        <span th:if="${hasPrev}"><a th:href="@{/clients?page=${prev}&size=${size}}">Previous</a>&nbsp;&nbsp;&nbsp;</span>
+        <span>Page</span>&nbsp;<span th:text="${page}"></span>
+        <span th:if="${hasNext}">&nbsp;&nbsp;&nbsp;<a th:href="@{/clients?page=${next}&size=${size}}">Next</a></span>
+    </nobr>
+</div>
+</body>
+</html>
