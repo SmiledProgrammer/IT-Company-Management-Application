@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+</head>
+<body>
+<h1>Projects</h1>
+<a th:href="@{/projects/add}">Add new project</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Active</th>
+            <th>Client Id</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="project : ${projects}">
+            <td th:text="${project.id}"></td>
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.active}"></td>
+            <td th:text="${project.client.id}"></td>
+            <td><a th:href="@{/projects/{id}(id=${project.id})}">Edit</a></td>
+            <td><a th:href="@{/projects/delete/{id}(id=${project.id})}">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <nobr>
+        <span th:if="${hasPrev}"><a th:href="@{/projects?page=${prev}&size=${size}}">Previous</a>&nbsp;&nbsp;&nbsp;</span>
+        <span>Page</span>&nbsp;<span th:text="${page}"></span>
+        <span th:if="${hasNext}">&nbsp;&nbsp;&nbsp;<a th:href="@{/projects?page=${next}&size=${size}}">Next</a></span>
+    </nobr>
+</div>
+</body>
+</html>

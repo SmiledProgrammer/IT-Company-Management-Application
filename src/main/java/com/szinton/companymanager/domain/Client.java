@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -31,7 +30,4 @@ public class Client {
 
     @Column(nullable = false)
     private String phoneNumber;
-
-    @OneToMany(mappedBy = "client")
-    private Set<Project> projects;
 }
