@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -26,7 +25,4 @@ public class Project {
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-
-    @OneToMany(mappedBy = "project")
-    private Set<ProjectMembership> workers;
 }

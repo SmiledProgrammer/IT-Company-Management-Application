@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -29,15 +28,12 @@ public class Worker {
     @Column(nullable = false)
     private Double salary;
 
-    @Column
+    @Column(nullable = false)
     private String email;
 
-    @Column
+    @Column(length = 24, nullable = false)
     private String phoneNumber;
 
     @OneToOne(mappedBy = "owner")
     private IdentityCard identityCard;
-
-    @OneToMany(mappedBy = "worker")
-    private Set<ProjectMembership> projects;
 }

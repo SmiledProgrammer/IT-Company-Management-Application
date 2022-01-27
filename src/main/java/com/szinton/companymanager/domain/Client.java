@@ -22,12 +22,12 @@ public class Client {
     @Column(length = 64, nullable = false)
     private String lastName;
 
-    @Column(length = 128)
+    @Column(length = 128, nullable = false)
     private String company;
 
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(length = 24, nullable = false)
     private String phoneNumber;
 }

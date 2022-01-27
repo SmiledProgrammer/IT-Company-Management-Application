@@ -15,31 +15,27 @@ public class CrudExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String handleResourceNotFound(ResourceNotFoundException ex) {
-        logException(ex);
+        log.error(ex.toString());
         return ex.getMessage();
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public String handleConstraintViolation(ConstraintViolationException ex) {
-        logException(ex);
+        log.error(ex.toString());
         return ex.getMessage();
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public String handleIllegalArgument(IllegalArgumentException ex) {
-        logException(ex);
+        log.error(ex.toString());
         return ex.getMessage();
     }
 
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public void handleAnyRuntimeException(RuntimeException ex) {
-        logException(ex);
-    }
-
-    private void logException(Exception ex) {
-        log.error(ex.toString() + " -> " + ex.getMessage());
+        log.error(ex.toString());
     }
 }

@@ -17,10 +17,10 @@ public class ProjectMembership {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "worker_id")
+    @JoinColumn(name = "worker_id", nullable = false)
     private Worker worker;
 
     @ManyToOne
-    @JoinColumn(name = "project_id")
+    @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 }
