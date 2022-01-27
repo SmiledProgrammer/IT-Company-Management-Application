@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+</head>
+<body>
+<h1>Identity cards</h1>
+<a th:href="@{/identity-cards/add}">Add new identity card</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Activation date</th>
+            <th>Owner (Worker) Id</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="identityCard : ${identityCards}">
+            <td th:text="${identityCard.id}"></td>
+            <td th:text="${identityCard.activationDate}"></td>
+            <td th:text="${identityCard.owner.id}"></td>
+            <td><a th:href="@{/identity-cards/{id}(id=${identityCard.id})}">Edit</a></td>
+            <td><a th:href="@{/identity-cards/delete/{id}(id=${identityCard.id})}">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <nobr>
+        <span th:if="${hasPrev}"><a th:href="@{/identity-cards?page=${prev}&size=${size}}">Previous</a>&nbsp;&nbsp;&nbsp;</span>
+        <span>Page</span>&nbsp;<span th:text="${page}"></span>
+        <span th:if="${hasNext}">&nbsp;&nbsp;&nbsp;<a th:href="@{/identity-cards?page=${next}&size=${size}}">Next</a></span>
+    </nobr>
+</div>
+</body>
+</html>

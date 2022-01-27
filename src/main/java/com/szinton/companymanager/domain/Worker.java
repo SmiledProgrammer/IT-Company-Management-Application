@@ -33,7 +33,4 @@ public class Worker {
 
     @Column(length = 24, nullable = false)
     private String phoneNumber;
-
-    @OneToOne(mappedBy = "owner")
-    private IdentityCard identityCard;
 }

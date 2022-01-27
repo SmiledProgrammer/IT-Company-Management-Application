@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+</head>
+<body>
+<h1>Identity cards</h1>
+<h2>Add new identity card</h2>
+<form th:action="@{/identity-cards/add}" th:object="${identityCard}" method="post">
+    <label for="activationDate">Activation date</label>
+    <input type="date" th:field="*{activationDate}" id="activationDate">
+    <br />
+    <label for="owner">Owner</label>
+    <input type="text" th:field="*{owner}" id="owner" placeholder="Owner">
+    <br />
+    <input type="submit" value="Add identity card">
+</form>
+</body>
+</html>
