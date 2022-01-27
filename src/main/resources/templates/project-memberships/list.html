@@ -30,9 +30,9 @@
 </table>
 <div>
     <nobr>
-        <span th:if="${hasPrev}"><a th:href="@{/project-memberships?page=${prev}&size=${size}}">Previous</a>&nbsp;&nbsp;&nbsp;</span>
+        <span th:if="${hasPrev}"><a th:href="@{/project-memberships(page=${prev}, size=${size})}">Previous</a>&nbsp;&nbsp;&nbsp;</span>
         <span>Page</span>&nbsp;<span th:text="${page}"></span>
-        <span th:if="${hasNext}">&nbsp;&nbsp;&nbsp;<a th:href="@{/project-memberships?page=${next}&size=${size}}">Next</a></span>
+        <span th:if="${hasNext}">&nbsp;&nbsp;&nbsp;<a th:href="@{/project-memberships(page=${prev}, size=${size})}">Next</a></span>
     </nobr>
 </div>
 </body>
